@@ -31,6 +31,24 @@ TypeWriter.prototype.type = function() {
     // Initial Type Speed
     let typeSpeed = 300;
 
+    if(this.isDeleting){
+        typeSpeed /= 2;
+    }
+
+    // If word is complete
+    if(!this.isDeleting && this.txt === fullTxt){
+        // Make a pause at end
+        typeSpeed = this.wait;
+        // Set delete to true
+        this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        // Move to the next word
+        this.wordIndex++;
+        // Pause before start typing
+        typeSpeed = 500;
+    }
+
     setTimeout(() => this.type(), 500)
 }
 
