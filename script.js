@@ -49,7 +49,7 @@ TypeWriter.prototype.type = function() {
         typeSpeed = 500;
     }
 
-    setTimeout(() => this.type(), 500)
+    setTimeout(() => this.type(), 150)
 }
 
 // Init On DOM Load
