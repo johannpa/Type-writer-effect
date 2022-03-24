@@ -17,16 +17,19 @@ TypeWriter.prototype.type = function() {
     const fullTxt = this.words[current];
 
     // Check if deleting
-    if(this.isDeleting){
+    if(this.isDeleting) {
         // Remove char
-        this.txt = fullTxt.substring(0, this.length - 1);
-    }else{
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
         // Add char
-        this.txt = fullTxt.substring(0, this.length + 1);
-    }
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
 
     // Insert txt into element
     this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+    // Initial Type Speed
+    let typeSpeed = 300;
 
     setTimeout(() => this.type(), 500)
 }
