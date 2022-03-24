@@ -10,7 +10,8 @@ const TypeWriter = function(txtElement, words, wait = 3000) {
 
 // Type Method
 TypeWriter.prototype.type = function() {
-    console.log('Hello');
+    //Current index of word
+   console.log('hello');
 
     setTimeout(() => this.type(), 500)
 }
@@ -23,4 +24,6 @@ function init(){
     const txtElement = document.querySelector('.txt-type');
     const words = JSON.parse(txtElement.getAttribute('data-words'));
     const wait = txtElement.getAttribute('data-wait');
+    //Init TypeWriter
+    new TypeWriter(txtElement, words, wait);
 }
